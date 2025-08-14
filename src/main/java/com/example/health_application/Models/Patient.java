@@ -30,5 +30,5 @@ public class Patient {
 
     @OneToOne
     private MedicalChart chart;
-    private GP gp;
+
 }
