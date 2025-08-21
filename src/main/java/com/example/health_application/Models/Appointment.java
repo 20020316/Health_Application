@@ -6,34 +6,36 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Date;
+
 @Entity
 @Table
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Patient extends User{
+@AllArgsConstructor
+public class Appointment {
     @SequenceGenerator(
-            name = "patient_sequence",
-            sequenceName = "patient_sequence",
+            name = "appointment_sequence",
+            sequenceName = "appointment_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "patient_sequence"
+            generator = "appointment_sequence"
     )
     @Id
-
     private int id;
 
-    private String name;
-    private String password;
-    private String email;
+    private Date date;
 
     @OneToOne
-    private MedicalChart chart;
+    private MedicalRecord record;
 
+    @ManyToOne
+    private Patient patient;
 
-    @OneToMany
-    private Appointment appointment;
+    @ManyToOne
+    private GP gp;
+
 }

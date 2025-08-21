@@ -1,20 +1,37 @@
 package com.example.health_application.Models;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table
-public class GP {
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class GP extends User{
     @SequenceGenerator(name = "gp_sequence",
     sequenceName = "gp_sequence", allocationSize = 1)
     @Id
     private int id;
 
-    private String address;
+
     private String name;
-    private String openingHours;
+    private String password;
+    private String email;
+    private String role;
+
+
+    @OneToMany
+    private List<Appointment> appointments;
+
+    @OneToMany
+    private List<Patient> patients;
+
+    @OneToMany
+    private List<MedicalChart> medicalCharts;
 }

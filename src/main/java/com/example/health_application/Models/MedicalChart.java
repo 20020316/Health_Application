@@ -24,4 +24,7 @@ public class MedicalChart {
     @OneToOne
     private Patient patient;
 
+    @ManyToOne
+    private GP gp;
+
 }
