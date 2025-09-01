@@ -24,7 +24,7 @@ public class GP extends User{
     private String password;
     private String email;
     private String role;
-
+    private String specialty;
 
     @OneToMany
     private List<Appointment> appointments;
@@ -34,4 +34,9 @@ public class GP extends User{
 
     @OneToMany
     private List<MedicalChart> medicalCharts;
+
+    @OneToMany
+    private List<Prescription> prescriptions;
+
+
 }

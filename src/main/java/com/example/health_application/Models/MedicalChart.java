@@ -1,9 +1,19 @@
 package com.example.health_application.Models;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Table
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class MedicalChart {
 
     @Id
@@ -25,6 +35,8 @@ public class MedicalChart {
     private Patient patient;
 
     @ManyToOne
-    private GP gp;
+    private GP GP;
 
+    @OneToMany
+    private List<MedicalRecord> records;
 }

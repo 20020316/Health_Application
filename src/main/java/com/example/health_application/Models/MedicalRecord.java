@@ -1,9 +1,6 @@
 package com.example.health_application.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
@@ -15,12 +12,8 @@ public class MedicalRecord {
 
     private LocalDateTime date;
 
-
-
-
-
-    @OneToOne
+    @ManyToOne
     private MedicalChart medicalChart;
-    @OneToOne
+    @OneToOne(mappedBy = "appointment_id")
     private Appointment appointment;
 }

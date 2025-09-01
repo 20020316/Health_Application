@@ -29,7 +29,7 @@ public class Appointment {
 
     private Date date;
 
-    @OneToOne
+    @OneToOne(mappedBy = "id")
     private MedicalRecord record;
 
     @ManyToOne

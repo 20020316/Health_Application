@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table
 @Getter
@@ -30,10 +32,19 @@ public class Patient extends User{
     private String password;
     private String email;
 
+    private int age;
+
+    private String address;
+
+    private String birthdate;
+
     @OneToOne
     private MedicalChart chart;
 
 
     @OneToMany
-    private Appointment appointment;
+    private List<Appointment> appointments;
+
+    @OneToMany
+    private List<Prescription> prescriptionList;
 }
