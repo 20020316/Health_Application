@@ -25,7 +25,6 @@ public class Patient extends User{
             generator = "patient_sequence"
     )
     @Id
-
     private int id;
 
     private String name;
@@ -38,6 +37,8 @@ public class Patient extends User{
 
     private String birthdate;
 
+    private String role = "user";
+
     @OneToOne
     private MedicalChart chart;
 
@@ -47,4 +48,7 @@ public class Patient extends User{
 
     @OneToMany
     private List<Prescription> prescriptionList;
+
+    @OneToMany
+    private List<Medication> medications;
 }

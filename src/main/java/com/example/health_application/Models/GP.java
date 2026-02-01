@@ -23,8 +23,7 @@ public class GP extends User{
     private String name;
     private String password;
     private String email;
-    private String role;
-    private String specialty;
+    private String role = "admin";
 
     @OneToMany
     private List<Appointment> appointments;
